@@ -1,0 +1,93 @@
+import { HttpClient } from '@angular/common/http';
+import { Injectable } from '@angular/core';
+import { of } from 'rxjs';
+import { apiUrls } from './apiurls';
+
+@Injectable({
+  providedIn: 'root'
+})
+export class ClothService {
+  products:any=[]
+
+  constructor(private http:HttpClient) {
+    this.products=[
+      {"id":1,"name":"White Formals","pattern":"Oversized Full Sleeve T-Shirts","fabric":"cotton","type":"shirt","price": 599,"image":"https://rukminim1.flixcart.com/image/1664/1664/shirt/n/n/8/bfshtpc501whte-being-fab-40-original-imae95wucwhe3z5z.jpeg?q=90"},
+      {"id":2,"name":"Blue Formals","pattern":"Oversized Full Sleeve T-Shirts","fabric":"cotton","type":"shirt","price":799,"image":"https://i.pinimg.com/originals/4e/b7/79/4eb77999f1c9eb7c321b2c961b30edc9.jpg"},
+      {"id":3,"name":"Green Formals","pattern":"Oversized Full Sleeve T-Shirts","fabric":"Linen","type":"shirt","price":1099,"image":"https://5.imimg.com/data5/ZP/RG/VO/SELLER-14071010/unicolr-formal-green-shirt-500x500.jpeg"},
+      {"id":4,"name":"Black Formals","pattern":"Oversized Full Sleeve T-Shirts","fabric":"cotton","type":"shirt","price":1599,"image":"https://img2.exportersindia.com/product_images/bc-full/2019/10/6676296/mens-black-formal-shirt-1571204042-5117760.jpeg"},
+      {"id":5,"name":"Checked Casual Shirt","pattern":"Oversized Full Sleeve T-Shirts","fabric":"cotton mixed","type":"shirt","price":899,"image":"https://th.bing.com/th/id/OIP.2gQk-SMakps_8EkCx24aYgHaHa?rs=1&pid=ImgDetMain"},
+      {"id":6,"name":"Checked Casual Shirt","pattern":"Oversized Full Sleeve T-Shirts","fabric":"cotton mixed","type":"shirt","price":399,"image":"https://th.bing.com/th/id/OIP.FU_L7vNYtZT1oAelf5fkUgAAAA?rs=1&pid=ImgDetMain"},
+
+      {"id":7,"name":"Solids: Charcoal Melange","pattern":"Easy Fit Full Sleeve T-Shirts","type":"tshirt","price":"₹399","image":"https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/product/1649318899_7628424.jpg?format=webp&w=640&dpr=1.5"},
+      {"id":8,"name":"Solids: Black(oversized)","pattern":"Oversized Full Sleeve T-Shirts","type":"tshirt","price":599,"image":"https://assets.superbalistcdn.co.za/filters:quality(75):format(jpg)/671281/original.jpg"},
+      {"id":9,"name":"Classic Sustainable Tee: Cocoa Brown","pattern":"Oversized T-Shirts","type":"tshirt","price":799,"image":"https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/product/1715495101_6347969.jpg?format=webp&w=480&dpr=1.5"},
+      {"id":10,"name":"Batman: Bat Signal Tie Dye","pattern":"Oversized T-Shirts","type":"tshirt","price":878,"image":"https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/product/1711090855_4106589.jpg?format=webp&w=480&dpr=1.5"},
+      {"id":11,"name":"Solids: Jade Green","pattern":"Oversized T-Shirts","type":"tshirt","price":499,"image":"https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/product/1684930634_3872564.jpg?format=webp&w=480&dpr=1.5"},
+      {"id":12,"name":"Supima: Airy Blue","pattern":"Supima T-Shirts","type":"tshirt","price":599,"image":"https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/product/1713336499_5809080.jpg?format=webp&w=480&dpr=1.5"},
+
+      {"id":13,"name":"FORMAL TROUSERS","pattern":"MEN NAVY CHECK SLIM FIT TROUSERS","type":"formaltrouser","price":1499,"image":"https://imagescdn.peterengland.com/img/app/product/9/916069-11413339.jpg?q=75&auto=format&w=342"},
+      {"id":14,"name":"FORMAL TROUSERS","pattern":"MEN GREY SOLID SLIM FIT TROUSERS","type":"formaltrouser","price":2599,"image":"https://imagescdn.peterengland.com/img/app/product/3/39642591-13433056.jpg?q=75&auto=format&w=342"},
+      {"id":15,"name":"FORMAL TROUSERS","pattern":"MEN BLACK SOLID SLIM FIT TROUSERS","type":"formaltrouser","price":1599,"image":"https://imagescdn.peterengland.com/img/app/product/6/668857-6894557.jpg?q=75&auto=format&w=342"},
+      {"id":16,"name":"FORMAL TROUSERS","pattern":"MEN CREAM SOLID SUPER SLIM FIT TROUSERS","type":"formaltrouser","price":1399,"image":"https://imagescdn.peterengland.com/img/app/product/3/39657985-13455468.jpg?q=75&auto=format&w=342"},
+      {"id":17,"name":"FORMAL TROUSERS","pattern":"MEN BLUE PRINT ULTRA SLIM FIT FORMAL TROUSERS","type":"formaltrouser","price":2199,"image":"https://imagescdn.peterengland.com/img/app/product/9/902079-11079783.jpg?q=75&auto=format&w=342"},
+      {"id":18,"name":"FORMAL TROUSERS","pattern":"MEN BROWN SOLID SUPER SLIM FIT FORMAL TROUSERS","type":"formaltrouser","price":1099,"image":"https://imagescdn.peterengland.com/img/app/product/9/931652-11832554.jpg?q=75&auto=format&w=342"},
+
+      {"id":19,"name":"CASUAL TROUSERS","pattern":"MEN BLUE SOLID JOGGER FIT CASUAL TROUSERS","type":"casualtrouser","price":1499,"image":"https://imagescdn.peterengland.com/img/app/product/7/704058-7623788.jpg?q=75&auto=format&w=342"},
+      {"id":20,"name":"CASUAL TROUSERS","pattern":"MEN GREY SOLID JOGGER FIT CASUAL TROUSERS","type":"casualtrouser","price":2599,"image":"https://imagescdn.peterengland.com/img/app/product/9/908500-11210669.jpg?q=75&auto=format&w=342"},
+      {"id":21,"name":"CASUAL TROUSERS","pattern":"MEN BROWN SOLID SMART FIT CHINO CASUAL TROUSERS","type":"casualtrouser","price":1599,"image":"https://imagescdn.peterengland.com/img/app/product/3/39632423-13119451.jpg?q=75&auto=format&w=342"},
+      {"id":22,"name":"CASUAL TROUSERS","pattern":"Parachute Pants: Army Green","type":"casualtrouser","price":1399,"image":"https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/product/1715964397_5904842.jpg?format=webp&w=480&dpr=1.5"},
+      {"id":23,"name":"CASUAL TROUSERS","pattern":"Solids: Navy Blue","type":"casualtrouser","price":2199,"image":"https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/product/1715595299_3164533.jpg?format=webp&w=480&dpr=1.5"},
+      {"id":24,"name":"CASUAL TROUSERS","pattern":"TSS Originals: Jet Black","type":"casualtrouser","price":1099,"image":"https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/product/1693581154_6296529.jpg?format=webp&w=480&dpr=1.5"},
+
+      {"id":25,"name":"Men Jeans","pattern":"Denim: Ink Blue (Slim Fit)","type":"jean","price":1499,"image":"https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/product/1686392407_7974723.jpg?format=webp&w=480&dpr=1.5"},
+      {"id":26,"name":"Men Jeans","pattern":"Solids: Black (Cargo)","type":"jean","price":2599,"image":"https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/product/1701159826_9511693.jpg?format=webp&w=480&dpr=1.5"},
+      {"id":27,"name":"Men Jeans","pattern":"Denim: Dark Blue (Straight Fit)","type":"jean","price":1599,"image":"https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/product/1714829427_7291539.jpg?format=webp&w=480&dpr=1.5"},
+      {"id":28,"name":"Men Jeans","pattern":"Denims: Mid Blue Wash (Straight Fit)","type":"jean","price":1399,"image":"https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/product/1710588912_7117745.jpg?format=webp&w=480&dpr=1.5"},
+      {"id":29,"name":"Men Jeans","pattern":"Solids: Light Grey (Slim Fit)","type":"jean","price":2199,"image":"https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/product/1710590322_4661415.jpg?format=webp&w=480&dpr=1.5"},
+      {"id":30,"name":"Men Jeans","pattern":"Solids: Indigo (Slim Fit)","type":"jean","price":1099,"image":"https://prod-img.thesouledstore.com/public/theSoul/uploads/catalog/product/1710590001_4483315.jpg?format=webp&w=480&dpr=1.5"}
+    ]
+   }
+
+   giveShirts(){
+    return this.http.post(`${apiUrls.clothServiceApi}shirt`,{type:"shirt"})
+   }
+
+   givetshirts(){
+    return this.http.post(`${apiUrls.clothServiceApi}tshirt`,{type:"tshirt"})
+   }
+
+   giveformaltrouser(){
+    return this.http.post(`${apiUrls.clothServiceApi}formaltrouser`,{type:"formaltrouser"})
+   }
+
+   givecasualtrouser(){
+    return this.http.post(`${apiUrls.clothServiceApi}casualtrouser`,{type:"casualtrouser"})
+   }
+
+
+   givejeans(){
+    return this.http.post(`${apiUrls.clothServiceApi}jeans`,{type:"jean"})
+   }
+
+
+
+    getbuyshirt(id:any){
+      return this.http.post(`${apiUrls.clothServiceApi}get-cloth`,{id})
+    }
+
+    getbuytshirt(id:any){
+      return this.http.post(`${apiUrls.clothServiceApi}get-cloth`,{id})
+    }
+
+    getbuycasualtrouser(id:any){
+      return this.http.post(`${apiUrls.clothServiceApi}get-cloth`,{id})
+    }
+
+    getbuyformaltrouser(id:any){
+      return this.http.post(`${apiUrls.clothServiceApi}get-cloth`,{id})
+    }
+
+    getbuyjean(id:any){
+      return this.http.post(`${apiUrls.clothServiceApi}get-cloth`,{id})
+    }
+}

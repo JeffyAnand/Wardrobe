@@ -1,0 +1,39 @@
+<div class="container">
+  <div class="card mt-2 mt-3">
+    <div class="card-body">
+      <div class="image-container">
+        
+      <img class="card-image" src="{{casualtrouser.image}}" style="width:50%">
+      
+      </div>
+      <h2 class="card-title">{{casualtrouser.name}}</h2>
+      <hr>
+      <h2 class="card-text">₹ {{casualtrouser.price}}</h2>
+
+      <div>
+          <p>Please select a size</p>
+          <input type="radio" name="size" value="28" [(ngModel)]="selectedSize"> 28
+          <input type="radio" name="size" value="30" [(ngModel)]="selectedSize"> 30
+          <input type="radio" name="size" value="32" [(ngModel)]="selectedSize"> 32
+          <input type="radio" name="size" value="34" [(ngModel)]="selectedSize"> 34
+          <input type="radio" name="size" value="36" [(ngModel)]="selectedSize"> 36
+          
+      </div>
+      <br>
+
+<!-- <div>
+  <label>Quantity:  &nbsp;&nbsp;</label>
+  <select [(ngModel)]="selectedQuantity">
+    <option *ngFor="let qty of quantityOptions" [value]="qty">{{ qty }}</option>
+  </select>
+</div>   -->
+
+<br>
+<h5>Total Amount: ₹ {{calculateTotalPrice()}} </h5>
+<br>
+
+       
+      <button class="btn btn-outline-success" *ngIf="proceedWith==false" (click)="placeOrder(casualtrouser._id)"> Add to Cart </button>
+    </div>
+  </div>
+</div>

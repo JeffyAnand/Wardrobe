@@ -1,0 +1,10 @@
+.image-container {
+    float: left;
+    width: 50%; /* Adjust as needed */
+    padding: 10px; /* Add spacing around the elements */
+}
+
+.image-container img {
+    max-width: 100%;
+    display: block; /* Remove any extra spacing around the image */
+}

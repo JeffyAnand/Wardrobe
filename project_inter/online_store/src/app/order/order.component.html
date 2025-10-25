@@ -1,0 +1,38 @@
+
+<div *ngIf="marketOrders.length > 0">
+  <h2><b>Order History</b></h2>
+  <div *ngFor="let order of marketOrders" class="order-card">
+    <div class="row">
+      <!-- Left Column -->
+      <div class="col-md-6">
+        <div class="order-details">
+          <p><strong>Customer Name:</strong> {{ order.name }}</p>
+          <p><strong>Address:</strong> {{ order.address }}</p>
+          <p><strong>Status:</strong> {{ order.status }}</p>
+
+          <!-- Product List -->
+          <ul class="product-list">
+            <li *ngFor="let product of order.cart">
+              <strong>Name:</strong> {{ product.name }} <br>
+              <strong>Pattern:</strong> {{ product.pattern }} <br>
+              <strong>Type:</strong> {{ product.type }} <br>
+              <strong>Price:</strong> ₹{{ product.price }}
+            </li>
+          </ul>
+
+          <!-- Cancel Order Button -->
+          <div *ngIf="order.status !== 'Cancelled'" >
+            <button class="btn btn-dark" (click)="cancelMarketOrder(order._id)">Cancel Order</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Column for Product Images -->
+      <div class="col-md-6 text-center">
+        <div *ngFor="let product of order.cart">
+          <img src="{{ product.image }}" alt="Product Image" class="product-image">
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

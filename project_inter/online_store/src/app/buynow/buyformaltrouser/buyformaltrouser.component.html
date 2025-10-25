@@ -1,0 +1,95 @@
+<div class="container">
+  <div class="card mt-2 mt-3">
+    <div class="card-body" *ngIf="proceedWith==false">
+      <div class="image-container">
+        
+      <img class="card-image" src="{{formaltrouser.image}}" style="width:50%">
+      
+      </div>
+      <h2 class="card-title">{{formaltrouser.name}}</h2>
+      <hr>
+      <h2 class="card-text">₹ {{formaltrouser.price}}</h2>
+
+      <div>
+          <p>Please select a size</p>
+          <input type="radio" name="size" value="28"> 28
+          <input type="radio" name="size" value="30"> 30
+          <input type="radio" name="size" value="32"> 32
+          <input type="radio" name="size" value="34"> 34
+          <input type="radio" name="size" value="36"> 36
+         
+      </div>
+      <br>
+
+<!-- <div>
+  <label>Quantity:  &nbsp;&nbsp;</label>
+  <select [(ngModel)]="selectedQuantity">
+    <option *ngFor="let qty of quantityOptions" [value]="qty">{{ qty }}</option>
+  </select>
+</div>   -->
+
+<br>
+<h5>Total Amount: ₹ {{calculateTotalPrice()}} </h5>
+<br>
+       
+      <button class="btn btn-outline-success" *ngIf="proceedWith==false" (click)="placeOrder(formaltrouser._id)"> Add to Cart </button>
+    </div>
+  </div>
+</div>
+<!-- <div *ngIf="proceedWith==true" class="container-fluid">
+
+<div class="row">
+<div class="col-xs-12">
+  <h3>Place my order&hellip;</h3>
+  <div class="list-group">
+    <div class="list-group-item">
+      <div class="list-group-item-heading">          
+          <div class="row">
+            <div class="col-xs-9">                      
+              <form role="form" [formGroup]="orderForm">
+                <div class="form-group">
+                  <label for="inputname" >Name</label>
+                  <input type="text" class="form-control form-control-large" id="inputname" formControlName="name" placeholder="Enter name">
+                </div>
+                <div class="form-group">
+                  <label for="inputAddress1">Street address</label>
+                  <input type="text" class="form-control form-control-large" id="inputAddress1" formControlName="address" placeholder="Enter address">
+                </div>
+                <div class="row">
+                  <div class="col-xs-3">
+                    <div class="form-group">
+                      <label for="inputZip">PIN Code</label>
+                      <input type="text" class="form-control form-control-small" id="inputZip" formControlName="pin" placeholder="Enter pincode">
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <label for="inputState" class="control-label">State</label>
+                  <select class="form-control form-control-large" formControlName="state">
+                    <option>Select state</option>
+                    <option>TamilNadu</option>
+                    <option>Mumbai</option>
+                    <option>Bangalore</option>
+                    <option>Kolkata</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <label for="inputState" class="control-label">Payment Methods</label>
+                  <select class="form-control form-control-large" formControlName="state">
+                    <option>Select Payment Method</option>
+                    <option>Cash on delivery</option>
+                    <option disabled>UPI</option>
+                    <option disabled>Credit/Debit cards</option>
+                    <option disabled>Net Banking</option>
+                  </select>
+                </div>
+                <div class="form-group">
+                  <h4>Total Amount: ₹ {{calculateTotalPrice()}}</h4>
+                </div>
+              </form>
+              <button class="btn btn-outline-success" (click)="placeOrder()">Place Order</button>
+            </div>
+          </div>
+      </div>
+    </div>
+  </div> -->

@@ -1,0 +1,28 @@
+<div class="login-page">
+  <div class="form">
+    <form [formGroup] ="loginForm" (ngSubmit)="onSubmit()" class="login-form">
+      <div>
+          <h4 style="color: white;">Login</h4> 
+          <input id="uId" type="text" placeholder="user id" formControlName ="uId"/>
+          <div  *ngIf="loginForm.controls.uId.invalid &&
+          (loginForm.controls.uId.dirty || loginForm.controls.uId.touched)">  
+          <div *ngIf="loginForm.controls.uId.errors?.['required']" style="color: lightgray;">*User Id is required.</div>
+          </div>
+          <input id="pass" type="password" placeholder="password" minlength="6" maxlength="14" formControlName = "uPass"/>
+          <div  *ngIf="loginForm.controls.uPass.invalid &&
+          (loginForm.controls.uPass.dirty || loginForm.controls.uPass.touched)">  
+          <div *ngIf="loginForm.controls.uPass.errors?.['required']" style="color: lightgray;">*Password is required.</div>
+          <div *ngIf="loginForm.controls.uPass.errors?.['minlength']">Name must be at least 6 characters long.</div>
+        <div *ngIf="loginForm.controls.uPass.errors?.['maxlength']">Max Length is 14</div>
+          </div>
+        <a class="message" routerLink="/signup">Forgot password</a>
+      <p class="message">Not registered? <a routerLink="/signup">Create an account</a></p>
+      {{errMsg}}
+      <button type="submit" value="Login">Submit</button>
+      </div>
+    </form>
+  </div>
+</div> 
+
+
+

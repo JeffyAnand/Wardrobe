@@ -1,0 +1,16 @@
+<div class="container">
+  <div class="row row-cols-1 row-cols-md-3 g-4">
+    <div class="col" *ngFor="let formaltrouser of formaltrousers">
+      <div class="card h-100 border-0">
+        <img [src]="formaltrouser.image" class="card-img-top img-fluid" alt="{{ formaltrouser.name }}">
+        <div class="card-body text-center">
+          <h5 class="card-title mb-2">{{ formaltrouser.name }}</h5>
+          <p class="card-text text-muted mb-3">Price: ₹{{ formaltrouser.price }}</p>
+          <button class="btn btn-outline-dark btn-sm mb-2" (click)="buyNow(formaltrouser._id)">Buy Now</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+

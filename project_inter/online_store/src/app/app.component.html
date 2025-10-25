@@ -1,0 +1,195 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-danger">
+  <a class="navbar-brand" href="#" style="margin-left: 20px;">Wardrobe</a>
+ 
+<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+ 
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ms-auto">
+          <li class="nav-item active">
+              <a class="nav-link" routerLink="/">Home</a>
+          </li>
+          <li class="nav-item">
+              <a class="nav-link" routerLink="/shirt">Shirt</a>
+          </li>
+          <li class="nav-item">
+              <a class="nav-link" routerLink="/tshirt">T-shirt</a>
+          </li>
+ 
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Trousers
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" routerLink="/formaltrouser">Formal Trousers</a></li>
+              <li><a class="dropdown-item" routerLink="/casualtrouser">Casual Trousers</a></li>
+              <li><a class="dropdown-item" routerLink="/jeans">Jeans</a></li>
+            </ul>
+          </li>
+          
+        <li class="nav-item">
+            <a class="nav-link" routerLink="/contactus">Contact Us</a>
+        </li>
+
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <img src="/assets/profile_logo.webp" class="*image img-fluid" alt="app_logo" width="30" class="d-inline-block img-fluid rounded">
+          </a>
+          <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown" style="left: 100%; transform: translateX(-100%);">
+            <!-- Conditional links based on authentication status -->
+            <li *ngIf="!service.isLoggedIn()" class="nav-item">
+              <a class="dropdown-item" routerLink="/login">Login</a>
+            </li>
+            <li *ngIf="!service.isLoggedIn()" class="nav-item">
+              <a class="dropdown-item" routerLink="/signup">SignUp</a>
+            </li>
+            <li *ngIf="service.isLoggedIn()" class="nav-item">
+              <a class="dropdown-item" routerLink="/order">Order Status</a>
+            </li>
+            <li *ngIf="service.isLoggedIn()" class="nav-item">
+              <a class="dropdown-item" routerLink="/cart">Cart</a>
+            </li>
+            <li *ngIf="service.isLoggedIn()" class="nav-item">
+              <a class="dropdown-item" routerLink="/logout">Logout</a>
+            </li>
+          </ul>
+        </li>
+
+        
+
+
+      </ul>
+  </div>
+</nav>
+
+
+<router-outlet></router-outlet>
+
+ 
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+<footer
+        class="text-center text-lg-start text-white"
+        style="background-color:rgb(185, 45, 45)"
+        >
+  <!-- Grid container -->
+  <div class="container p-4 pb-0">
+    <!-- Section: Links -->
+    <section class="">
+      <!--Grid row-->
+      <div class="row">
+        <!-- Grid column -->
+        <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mt-3">
+          <h6 class="text-uppercase mb-4 font-weight-bold">
+            Wardrobe
+          </h6>
+          <p >
+            "Elevate your style with our premium fashion collection"
+          </p>
+          <p>Follow us :</p>
+          <!-- Facebook -->
+          <a
+             class="btn btn-primary btn-floating m-1"
+             style="background-color: #3b5998"
+             href="#!"
+             role="button"
+             ><i class="fab fa-facebook-f"></i
+            ></a>
+
+          <!-- Twitter -->
+          <a
+             class="btn btn-primary btn-floating m-1"
+             style="background-color: #55acee"
+             href="#!"
+             role="button"
+             ><i class="fab fa-twitter"></i
+            ></a>
+
+          <!-- Google -->
+          <a
+             class="btn btn-primary btn-floating m-1"
+             style="background-color: #dd4b39"
+             href="#!"
+             role="button"
+             ><i class="fab fa-google"></i
+            ></a>
+
+          <!-- Instagram -->
+          <a
+             class="btn btn-primary btn-floating m-1"
+             style="background-color: #ac2bac"
+             href="#!"
+             role="button"
+             ><i class="fab fa-instagram"></i
+            ></a>
+        </div>
+        <!-- Grid column -->
+
+        <hr class="w-100 clearfix d-md-none" />
+
+                <!-- Grid column -->
+      <div class="col-md-2 col-lg-4 col-xl-3 mx-auto mt-3">
+        <h6 class="text-uppercase mb-4 font-weight-bold">Contact</h6>
+        <p><i class="fas fa-envelope mr-3"></i>&nbsp;&nbsp;Wadrobe&commat;gmail.com</p>
+        <p><i class="fas fa-phone mr-3"></i>&nbsp;&nbsp;9999999</p>
+        <p><i class="fas fa-home mr-3"></i> &nbsp;&nbsp;Chennai, TN</p>
+      </div>
+      <!-- Grid column -->
+
+        <!-- Grid column -->
+        <div class="col-md-4 col-lg-4 col-xl-3 mx-auto mt-3">
+        
+          <h6 class="text-uppercase mb-4 font-weight-bold">
+            COMPANY
+          </h6>
+          <p>
+            <a class="text-white" routerLink="/aboutus">About Us</a>
+          </p>
+          <p>
+            <a class="text-white" routerLink="/contactus">Contact Us</a>
+          </p>
+
+        </div>
+
+
+
+        <hr class="w-100 clearfix d-md-none" />
+
+        <!-- Grid column -->
+        <hr class="w-100 clearfix d-md-none" />
+
+          
+
+        <!-- Grid column -->
+        <div class="col-md-2 col-lg-4 col-xl-3 mx-auto mt-3">
+          <h6 class="text-uppercase mb-4 font-weight-bold">POLICY</h6>
+          <a class="text-white" routerLink="/terms">Terms & conditions</a><br><br>
+          <a class="text-white" routerLink="/policies">Privacy & policies</a><br><br>
+          <a class="text-white" routerLink="/orderpolicy">Order policies</a><br><br>
+          
+
+
+        </div>
+
+
+      </div>
+      <!--Grid row-->
+    </section>
+    <!-- Section: Links -->
+  </div>
+  <!-- Grid container -->
+
+  <!-- Copyright -->
+  <div
+       class="text-center p-3"
+       style="background-color: rgba(0, 0, 0, 0.2)"
+       >
+    © 2024 Copyright:
+    All Rights Reserved.
+     
+  </div>
+  <!-- Copyright -->
+</footer>
+<!-- Footer -->
+
+<!-- End of .container -->

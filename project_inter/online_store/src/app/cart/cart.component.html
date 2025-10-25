@@ -1,0 +1,108 @@
+<div class="cart" *ngIf="!cart[0]">
+  <div class="image">
+  <img src="assets/empty-cart.svg" style="max-height: 250px; max-width: 100%; " >
+</div>
+  <h1 class="text-center">Your cart is currently empty</h1>
+  <p class="text-center">I think the below button is important. Hit this button and you will find a lot of interesting products on our "Home" page</p>
+  <div class="button-cart">
+    <button class="btn btn-primary" (click)="onClick()" >Continue shopping</button>
+  </div>
+</div>
+
+
+<br>
+ <div class="container-fluid">
+    <div class="row">
+  
+      <div class="col-md-6">
+          <div class="card mt-4" *ngFor="let product of cart" style="max-width: 600px;">
+              <div class="card-body">
+                  <div class="product-container">
+                      <img [src]="product.image" class="product-image">
+                   <div class="product-info">
+                    <h3>{{product.name}}</h3>
+                     <p>Pattern: {{product.pattern}}</p>
+                      <p>Type: {{product.type}}</p>
+                      <p>Price: ₹{{product.price}}</p>
+                    <div class="text-center">
+                      <button (click)="removeCartItem(product._id)" class="btn btn-outline-success">Remove</button>
+                    </div>
+                  </div>
+                </div>
+             </div>
+            </div>
+  <br>
+  <div style="display: flex; justify-content: center; align-items: center;">
+    <button class="btn btn-outline-success btn-lg btn-block" *ngIf="cart.length > 0" (click)="buyNow()">Proceed</button>
+  </div>
+  <br>
+  </div>
+
+  <div *ngIf="proceedWith==true" class="container-fluid" style="width: 50%;" >
+
+    <div class="row">
+     <div class="col-xs-12">
+       <h3>Ship My Order to</h3>
+       <div class="list-group">
+         <div class="list-group-item">
+           <div class="list-group-item-heading">          
+               <div class="row">
+                 <div class="col-xs-9">                      
+                   <form role="form" [formGroup]="orderForm">
+                     <div class="form-group">
+                       <label for="inputname" >Name*</label>
+                       <input type="text" class="form-control form-control-large" id="inputname" formControlName="name" placeholder="Enter name">
+                     </div>
+                     <div class="form-group">
+                      <label for="inputname" >Mobile Number*</label>
+                      <input type="tel" class="form-control form-control-large" id="inputname" formControlName="mobilenumber" placeholder="Enter Mobile Number">
+                      
+                    </div>
+                     <div class="form-group">
+                       <label for="inputAddress1">Street address*</label>
+                       <input type="text" class="form-control form-control-large" id="inputAddress1" formControlName="address" placeholder="Enter address">
+                     </div>
+                     <div class="row">
+                       <div class="col-xs-3">
+                         <div class="form-group">
+                           <label for="inputZip">PIN Code*</label>
+                           <input type="text" class="form-control form-control-small" id="inputZip" formControlName="pin" placeholder="Enter pincode">
+                         </div>
+                       </div>
+                     </div>
+
+                     <div class="form-group">
+                      <label for="inputAddress1">Enter State*</label>
+                      <input type="text" class="form-control form-control-large" id="inputAddress1" formControlName="state" placeholder="Enter state">
+                    </div>
+                     
+                     <div class="form-group">
+                       <label for="inputState" class="control-label">Payment Methods*</label>
+                       <select class="form-control form-control-large" formControlName="paymentmode">
+                         <option>Select Payment Method</option>
+                         <option>Cash on delivery</option>
+                         <option disabled>UPI</option>
+                         <option disabled>Credit/Debit cards</option>
+                         <option disabled>Net Banking</option>
+                       </select>
+                     </div>
+
+
+                     
+                   </form>
+                   <b>Total Amount:</b> ₹{{addPrice}} 
+                   <br>
+                   <button class="btn btn-outline-success" style="margin-left: 225px;" (click)="placeOrder()">Place Order</button>
+                 </div>
+               </div>
+
+               
+
+           </div>
+         </div>
+       </div>    
+   
+  
+  <br>
+
+

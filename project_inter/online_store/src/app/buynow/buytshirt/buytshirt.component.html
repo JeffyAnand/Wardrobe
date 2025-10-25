@@ -1,0 +1,40 @@
+<div class="container">
+  <div class="card mt-2 mt-3">
+    <div class="card-body" *ngIf="proceedWith==false">
+      <div class="image-container">
+        
+      <img class="card-image" src="{{tshirt.image}}" style="width:50%">
+      
+      </div>
+      <h2 class="card-title">{{tshirt.name}}</h2>
+      
+      <hr>
+      <h2 class="card-text">₹ {{tshirt.price}}</h2>
+
+      <div>
+          <p>Please select a size</p>
+          <input type="radio" name="size" value="XS"> XS
+          <input type="radio" name="size" value="S"> S
+          <input type="radio" name="size" value="M"> M
+          <input type="radio" name="size" value="L"> L
+          <input type="radio" name="size" value="XL"> XL
+          <input type="radio" name="size" value="XXL"> XXL
+          <input type="radio" name="size" value="XXXL"> XXXL
+      </div>
+      <br>
+
+<!-- <div>
+  <label>Quantity:  &nbsp;&nbsp;</label>
+  <select [(ngModel)]="selectedQuantity">
+    <option *ngFor="let qty of quantityOptions" [value]="qty">{{ qty }}</option>
+  </select>
+</div>   -->
+
+<br>
+<h5>Total Amount: ₹ {{calculateTotalPrice()}} </h5>
+<br>
+       
+      <button class="btn btn-outline-success" *ngIf="proceedWith==false" (click)="placeOrder(tshirt._id)"> Add to Cart </button>
+    </div>
+  </div>
+</div>

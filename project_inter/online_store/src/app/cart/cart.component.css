@@ -1,0 +1,81 @@
+.cartItem {
+    --bs-gutter-x: 1.5rem;
+  }
+
+  .product-container {
+    display: flex;
+    align-items: center; /* Vertically center items */
+}
+
+.product-image {
+    width: 30%; /* Adjust as needed */
+    margin-right: 1rem; /* Add spacing between image and info */
+}
+
+.product-info {
+    flex: 1; /* Take remaining space */
+}
+
+.card {
+    max-width: 600px; /* Adjust as needed */
+    /* margin: 0 auto; Center the card horizontally */
+    margin-left: 30px;
+}
+
+
+.container {
+    display: flex;
+    flex-direction: row;
+  }
+
+
+   .form-container {
+    background-color: #f2f2f2;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .form-title {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 24px;
+    color: #333;
+  }
+  
+  .form-group {
+    margin-bottom: 15px;
+  }
+  
+  input[type="text"],
+  select {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  
+
+  
+  @media (max-width: 767px) {
+    .col-sm-6 {
+      width: 100%;
+    }
+  }
+
+  .image{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-top: 50px;
+      margin-bottom: 20px;
+      
+  }
+
+  .button-cart{
+    
+    margin-left: 45%;
+  }
+  

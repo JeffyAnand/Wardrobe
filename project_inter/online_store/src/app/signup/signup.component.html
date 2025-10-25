@@ -1,0 +1,33 @@
+<div class="signup-page">
+    <div class="form">
+      <form [formGroup] ="signupForm" (ngSubmit)="onSubmit()" class="signup-form">
+        <div>
+            <h4 style="color: white;">Signup</h4> 
+            <input id="uId" type="text" placeholder="user id" formControlName ="uId"/>
+            <div  *ngIf="signupForm.controls.uId.invalid &&
+            (signupForm.controls.uId.dirty || signupForm.controls.uId.touched)" >  
+            <div *ngIf="signupForm.controls.uId.errors?.['required']" style="color: lightgray;">*User Id is required.</div>
+            </div>
+
+            <input id="email" type="email" placeholder="Email id" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}" formControlName ="uemail"/>
+            <div  *ngIf="signupForm.controls.uemail.invalid &&
+            (signupForm.controls.uemail.dirty || signupForm.controls.uemail.touched)">  
+            <div *ngIf="signupForm.controls.uemail.errors?.['required']" style="color: lightgray;">*Email Id is required.</div>
+            <div *ngIf="signupForm.controls.uemail.errors?.['pattern']">Incorrect Mail id </div>
+            </div>
+
+            <input id="pass" type="password" placeholder="password" minlength="6" maxlength="15" formControlName = "uPass"/>
+            <div  *ngIf="signupForm.controls.uPass.invalid &&
+            (signupForm.controls.uPass.dirty || signupForm.controls.uPass.touched)" >  
+            <div *ngIf="signupForm.controls.uPass.errors?.['required']" style="color: lightgray;">*Password is required.</div>
+            
+            <div *ngIf="signupForm.controls.uPass.errors?.['minlength']">Name must be at least 6 characters long.</div>
+        <div *ngIf="signupForm.controls.uPass.errors?.['maxlength']">Max Length is 14</div>
+     
+            </div>
+        
+        <button type="submit" value="Signup">Submit</button>
+        </div>
+      </form>
+    </div>
+  </div>
